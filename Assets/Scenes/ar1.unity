@@ -119,6 +119,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &415446998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6623fd470d1542548aa8a9fd5e39c00f,
+    type: 3}
+  m_PrefabInstance: {fileID: 723834641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &446317579
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.8309, y: -261}
+  m_AnchoredPosition: {x: -3.8309, y: -706}
   m_SizeDelta: {x: 462.7191, y: 91.5277}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &446317581
@@ -654,13 +660,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6623fd470d1542548aa8a9fd5e39c00f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 933858922}
   m_SourcePrefab: {fileID: 100100000, guid: 6623fd470d1542548aa8a9fd5e39c00f, type: 3}
 --- !u!4 &933858921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6623fd470d1542548aa8a9fd5e39c00f,
     type: 3}
   m_PrefabInstance: {fileID: 723834641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &933858922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415446998}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b4b07103cb28940a42c5d8fb5e829a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tetWirt: {fileID: 1432058279}
+  materials:
+  - {fileID: 2100000, guid: 6e34bd0d7731b4a4bb64d73c61527e48, type: 2}
+  - {fileID: 2100000, guid: fd0142eb4326ce246b6fb70627910c89, type: 2}
+  - {fileID: 2100000, guid: 23d7b2f7bd05c3e439b39da9769967bc, type: 2}
+--- !u!1 &1108747383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6045b7c33dd5e5a48ab4e167fd1599ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1617946104}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1274276722
 GameObject:
@@ -810,7 +843,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: cd5d64d694dc6c84e8bdd06f05f948b9, type: 2}
+      objectReference: {fileID: 2100000, guid: 10c1649bf03753243855130d2c343354, type: 2}
     - target: {fileID: -8927691783187205871, guid: 6045b7c33dd5e5a48ab4e167fd1599ff,
         type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
@@ -884,7 +917,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6045b7c33dd5e5a48ab4e167fd1599ff,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1617946110}
   m_SourcePrefab: {fileID: 100100000, guid: 6045b7c33dd5e5a48ab4e167fd1599ff, type: 3}
 --- !u!1 &1617946105 stripped
 GameObject:
@@ -898,6 +935,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1617946104}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1617946110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108747383}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273696a190a04314a83cb513e01415fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conoWirt: {fileID: 1617946105}
+  tetWirt: {fileID: 1432058279}
+  materials:
+  - {fileID: 2100000, guid: 10c1649bf03753243855130d2c343354, type: 2}
+  - {fileID: 2100000, guid: cd5d64d694dc6c84e8bdd06f05f948b9, type: 2}
+  - {fileID: 2100000, guid: fd0142eb4326ce246b6fb70627910c89, type: 2}
 --- !u!1 &1626562082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,10 +1179,10 @@ MonoBehaviour:
   tetWirt: {fileID: 1432058279}
   materials:
   - {fileID: 2100000, guid: 10c1649bf03753243855130d2c343354, type: 2}
-  - {fileID: 2100000, guid: 6e34bd0d7731b4a4bb64d73c61527e48, type: 2}
-  - {fileID: 2100000, guid: 23d7b2f7bd05c3e439b39da9769967bc, type: 2}
   - {fileID: 2100000, guid: cd5d64d694dc6c84e8bdd06f05f948b9, type: 2}
   - {fileID: 2100000, guid: fd0142eb4326ce246b6fb70627910c89, type: 2}
+  - {fileID: 2100000, guid: 23d7b2f7bd05c3e439b39da9769967bc, type: 2}
+  - {fileID: 2100000, guid: 6e34bd0d7731b4a4bb64d73c61527e48, type: 2}
 --- !u!114 &1659135866
 MonoBehaviour:
   m_ObjectHideFlags: 0
