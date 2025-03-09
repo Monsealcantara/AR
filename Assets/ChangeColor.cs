@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour
 {
-    public GameObject modelOvGWall;
-    private Color[] colors = new Color[] {Color.white, Color.magenta, Color.green, Color.yellow, Color.cyan}; // Array de 5 colores
-    private int colorIndex = 0; // Índice para saber el color actual
-    //public Color color;
-    //public Material colorMaterial;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() //Se ejecuta una sola vez cuando se inicia nuestra escena
+    public GameObject conoWirt;
+    public GameObject tetWirt;
+    public Material[] materials; // Array de materiales para asignar aleatoriamente
+    private Color[] colors = new Color[] {Color.white, Color.magenta, Color.green, Color.yellow, Color.cyan}; // Array de colores
+    
+    void Start() // Se ejecuta una sola vez cuando se inicia nuestra escena
     {
-        
+        if (materials.Length == 0) {
+            Debug.LogError("No se han asignado materiales en el array 'materials'");
+        }
     }
 
     // Update is called once per frame
@@ -19,23 +20,89 @@ public class ChangeColor : MonoBehaviour
         
     }
 
-//Función para cambiar de color
+    // Función para cambiar de color y material aleatoriamente
     public void ChangeColor_BTN(){
-        modelOvGWall.GetComponent<Renderer>().material.color = Color.white;
-        if (modelOvGWall != null)
+        if (conoWirt != null && tetWirt != null)
         {
-            Renderer renderer = modelOvGWall.GetComponent<Renderer>();
-            if (renderer != null)
+            Renderer renderer1 = tetWirt.GetComponent<Renderer>();
+            Renderer renderer2 = conoWirt.GetComponent<Renderer>();
+
+            if (renderer1 != null && renderer2 != null)
             {
-                // Cambia al siguiente color
-                colorIndex = (colorIndex + 1) % colors.Length;  // Aumenta el índice y lo reinicia cuando llega al final del array
-                renderer.material.color = colors[colorIndex];  // Aplica el nuevo color
+                // Verificar que hay materiales en el array antes de acceder a ellos
+                if (materials.Length > 0)
+                {
+                    // Genera un índice aleatorio para el color y para el material
+                    int randomColorIndex = Random.Range(0, colors.Length);
+                    int randomMaterialIndex = Random.Range(0, materials.Length);
+
+                    // Aplica el color aleatorio
+                    renderer1.material.color = colors[randomColorIndex];
+                    renderer2.material.color = colors[randomColorIndex];
+
+                    // Aplica el material aleatorio
+                    renderer1.material = materials[randomMaterialIndex];
+                    renderer2.material = materials[randomMaterialIndex];
+                }
+                else
+                {
+                    Debug.LogError("No hay materiales asignados en el array 'materials'.");
+                }
             }
             else
             {
-                Debug.LogError("El componente Renderer no está adjunto al objeto modelOvGWall.");
+                Debug.LogError("El componente Renderer no está adjunto a alguno de los objetos.");
             }
         }
-        //colorMaterial.color = color;
+        else
+        {
+            Debug.LogError("Los objetos conoWirt y tetWirt no están asignados.");
+        }
     }
 }
+
+
+
+// using UnityEngine;
+
+// public class ChangeColor : MonoBehaviour
+// {
+//     public GameObject modelOvGWall;
+//     public GameObject conoWirt;
+//     public GameObject tetWirt;
+//     //public Material colorMaterial;
+//     private Color[] colors = new Color[] {Color.white, Color.magenta, Color.green, Color.yellow, Color.cyan}; // Array de 5 colores
+    
+//     void Start() //Se ejecuta una sola vez cuando se inicia nuestra escena
+//     {
+        
+//     }
+
+//     // Update is called once per frame
+//     void Update()
+//     {
+        
+//     }
+
+//     // Función para cambiar de color
+//     public void ChangeColor_BTN(){
+//         if (modelOvGWall != null || conoWirt!=null || tetWirt!= null)
+//         {
+//             Renderer renderer = modelOvGWall.GetComponent<Renderer>();
+//             Renderer renderer1 = tetWirt.GetComponent<Renderer>();
+//             Renderer renderer2 = conoWirt.GetComponent<Renderer>();
+//             if (renderer != null || renderer1 != null || renderer2 != null)
+//             {
+//                 // Genera un índice aleatorio entre 0 y la longitud del array de colores
+//                 int randomIndex = Random.Range(0, colors.Length);  
+//                 renderer.material.color = colors[randomIndex];  // Aplica el color aleatorio
+//                 renderer1.material.color = colors[randomIndex];  // Aplica el color aleatorio
+//                 renderer2.material.color = colors[randomIndex];  // Aplica el color aleatorio
+//             }
+//             else
+//             {
+//                 Debug.LogError("El componente Renderer no está adjunto al objeto modelOvGWall.");
+//             }
+//         }
+//     }
+// }
