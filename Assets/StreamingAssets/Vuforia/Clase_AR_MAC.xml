@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="bngrwi" size="1.000000 1.000000" />
+    <ImageTarget name="logoogw" size="1.000000 1.000000" />
+    <ImageTarget name="beatrizov" size="1.000000 1.000000" />
+    <ImageTarget name="greg" size="1.000000 1.005587" />
     <ImageTarget name="gregwert" size="1.000000 1.066508" />
   </Tracking>
 </QCARConfig>
