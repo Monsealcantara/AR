@@ -4,15 +4,19 @@ using System.Collections;
 
 public class Move : MonoBehaviour
 {
-    public GameObject modelW;
     public GameObject modelG;
     public ObserverBehaviour[] ImageTargets;
-    public float speed = 1.0f; 
-    private bool isMoving = false; 
+    public float speed = 1.0f;
+    public float rotationSpeed = 5.0f;
+    private bool isMoving = false;
+
+    // Para controlar la animación de caminar
+    private Animator animator;
 
     void Start()
     {
-        
+        // Obtener el componente Animator del modelo
+        animator = modelG.GetComponent<Animator>();
     }
 
     // Mueve el modelo al marcador específico indicado por el índice
@@ -35,23 +39,48 @@ public class Move : MonoBehaviour
             yield break;
         }
 
+        // Activar la animación de caminar
+        animator.SetBool("caminata", true);
+
         Vector3 startPositionG = modelG.transform.position;
-        Vector3 startPositionW = modelW.transform.position;
         Vector3 endPosition = target.transform.position;
 
         float journey = 0;
 
         while (journey <= 1f)
         {
-            journey += Time.deltaTime * speed;  
+            // Movimiento del modelo
+            journey += Time.deltaTime * speed;
             modelG.transform.position = Vector3.Lerp(startPositionG, endPosition, journey);
-            modelW.transform.position = Vector3.Lerp(startPositionW, endPosition, journey);
-            yield return null;    
+
+            // Rotación del modelo hacia el marcador
+            Vector3 direction = endPosition - modelG.transform.position;
+            if (direction != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                modelG.transform.rotation = Quaternion.Slerp(modelG.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            }
+
+            yield return null;
         }
+
+        // Detener la animación de caminar cuando llegue al marcador
+        animator.SetBool("caminata", false);
 
         isMoving = false;
     }
+
+    // Método para detener la animación al colisionar con el marcador
+    void OnTriggerEnter(Collider tag)
+    {
+        if (tag.CompareTag("Marker")) // Asegúrate de que tu marcador tenga el tag "Marker"
+        {
+            // Detener la animación
+            animator.SetBool("caminata", false);
+        }
+    }
 }
+
 
 
 // using UnityEngine;
