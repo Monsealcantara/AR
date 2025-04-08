@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Marker
+  - Personaje
   layers:
   - Default
   - TransparentFX
