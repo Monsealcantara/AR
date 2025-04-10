@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class cambioMarcador : MonoBehaviour
 {
-    public GameObject harryPotter;  // Referencia al modelo "HarryPotter"
+    public GameObject harryPotter; 
     private Transform originalParent;
 
     // Este método se llama cuando otro collider entra en el trigger
@@ -23,8 +23,7 @@ public class cambioMarcador : MonoBehaviour
         // Si "HarryPotter" sale del área del marcador
         if (other.gameObject == harryPotter)
         {
-            // Aquí puedes decidir si mantenerlo en su lugar o devolverlo a su estado inicial
-            harryPotter.transform.SetParent(null);  // Opcional: Desasociarlo del marcador
+            harryPotter.transform.SetParent(null);  
         }
     }
 }

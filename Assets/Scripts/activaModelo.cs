@@ -3,7 +3,6 @@ using UnityEngine;
 public class ActivarModeloAlLlegar : MonoBehaviour
 {
     public GameObject[] modelos; // Arreglo para varios modelos
-    //public GameObject canvas;    // Canvas que también quieres activar
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,12 +13,6 @@ public class ActivarModeloAlLlegar : MonoBehaviour
             {
                 modelo.SetActive(true); // Muestra cada modelo
             }
-
-            // Activar el Canvas
-            // if (canvas != null)
-            // {
-            //     canvas.SetActive(true);
-            // }
         }
     }
 
@@ -32,12 +25,6 @@ public class ActivarModeloAlLlegar : MonoBehaviour
             {
                 modelo.SetActive(false); // Oculta cada modelo
             }
-
-            // Desactivar el Canvas
-            // if (canvas != null)
-            // {
-            //     canvas.SetActive(false);
-            // }
         }
     }
 }

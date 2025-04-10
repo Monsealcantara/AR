@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Marker
   - Personaje
+  - anim
   layers:
   - Default
   - TransparentFX

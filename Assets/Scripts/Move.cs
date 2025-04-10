@@ -73,7 +73,7 @@ public class Move : MonoBehaviour
     // Método para detener la animación al colisionar con el marcador
     void OnTriggerEnter(Collider tag)
     {
-        if (tag.CompareTag("Marker")) // Asegúrate de que tu marcador tenga el tag "Marker"
+        if (tag.CompareTag("Marker")) 
         {
             // Detener la animación
             animator.SetBool("caminata", false);
